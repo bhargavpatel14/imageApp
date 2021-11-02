@@ -1,6 +1,45 @@
 <app-header></app-header>
-<div class="atf-wrap">
+<div class="atf-wrap height-fix">
     <div class="grid">
-
+        <div class="create-wrap edit-wrap">
+            <div class="create-innerwrap">
+                <p class="title">Edit Image</p>
+                <div class="form-wrap">
+                    <form [formGroup]="form" (ngSubmit)="editCurrentImage(newImage)">
+                        <div class="field-wrap">
+                            <label for="url" class="prm-lbl">Image:</label>
+                            <input type="file" (change)="handleFileInput($event)" id="url">
+                        </div>
+                        <img class="preview" src="assets/images/{{newImage.url}}">
+                        <div class="field-wrap">
+                            <label for="img_name" class="prm-lbl">Image Name:</label>
+                            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newImage.img_name" id="img_name" name="img_name" type="text" required>
+                        </div>
+                        <div class="field-wrap">
+                            <label for="photographer" class="prm-lbl">Photographer:</label>
+                            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newImage.photographer" id="photographer" name="photographer" type="text" required>
+                        </div>
+                        <div class="field-wrap">
+                            <label for="tags" class="prm-lbl">Tags:</label>
+                            <div class="check-wrap">
+                                <label *ngFor="let tag of tagList">
+                                    <input type="checkbox" [value]="tag.value" (change)="onTagboxChange($event)" class="chkbx" [ngModelOptions]="{standalone: true}" [(ngModel)]="tag.isChecked" />
+                                    {{tag.description}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="field-wrap">
+                            <label for="aprture" class="prm-lbl">Aprture:</label>
+                            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newImage.aprture" id="aprture" name="aprture" type="text" required>
+                        </div>
+                        <div class="field-wrap">
+                            <label for="shut_speed" class="prm-lbl">Shutter Speed:</label>
+                            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newImage.shut_speed" id="shut_speed" name="shut_speed" type="text" required>
+                        </div>
+                        <button type="submit" class="submt-new-img">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,6 +1,22 @@
 <app-header></app-header>
 <div class="atf-wrap">
     <div class="grid">
-
+        <a class="new-img-btn" routerLink="/new">Add New Image</a>
+        <div class="list-wrap">
+            <ul class="list-inner-wrap">
+                <li *ngFor="let image of images">
+                    <div class="img-wrap">
+                        <img src="assets/images/{{image.url}}" alt="{{image.url}}">
+                    </div>
+                    <p class="img-ttl">{{image.img_name}}</p>
+                    <p class="prsn"><span>Photographer: </span>&nbsp;<span class="phgrph">{{image.photographer}}</span></p>
+                    <p class="tags"><span *ngFor="let tag of image.tags">{{tag}}</span></p>
+                    <div class="btn-wrap">
+                        <a class="dwn-btn">Download</a>
+                        <a routerLink="/image-info/{{image._id}}">Details</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
