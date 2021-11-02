@@ -85,3 +85,21 @@ html *{
 .atf-wrap h2 span a:hover{
   text-decoration: none;
 }
+
+.about-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.about-wrap h3{
+  text-align: center;
+  color: #B945B8;
+  padding: 70px 230px;
+  font-size: 26px;
+}
+.about-wrap h4{
+  text-align: center;
+  color: #f9f9f9;
+  font-size: 20px;
+}
