@@ -11,7 +11,7 @@ export class ImageDataService {
 
   constructor(private http: HttpClient, private route: Router) {}
 
-  public getPhones(): Promise<Image[]>{
+  public getImages(): Promise<Image[]>{
     return this.http
       .get(this.imagesUrl)
       .toPromise()
@@ -19,7 +19,7 @@ export class ImageDataService {
       .catch(this.handleError);
   }
 
-  public getSinglePhone(imageId: String): Promise<Image>{
+  public getSingleImage(imageId: String): Promise<Image>{
     return this.http
       .get(this.imagesUrl + '/' + imageId)
       .toPromise()
@@ -27,9 +27,9 @@ export class ImageDataService {
       .catch(this.handleError);
   }
 
-  public createPhone(newPhone:Image): Promise<Image>{
+  public createImage(newImage:Image): Promise<Image>{
     return this.http
-      .post(this.imagesUrl, newPhone)
+      .post(this.imagesUrl, newImage)
       .toPromise()
       .then(response => {
         response as Image
@@ -38,9 +38,9 @@ export class ImageDataService {
       .catch(this.handleError);
   }
 
-  public editPhone(newPhone:Image, imageId: String): Promise<Image>{
+  public editImage(newImage:Image, imageId: String): Promise<Image>{
     return this.http
-      .put(this.imagesUrl + '/' + imageId, newPhone)
+      .put(this.imagesUrl + '/' + imageId, newImage)
       .toPromise()
       .then(response => {
         this.route.navigate(['/imagelist']);
@@ -48,7 +48,7 @@ export class ImageDataService {
       .catch(this.handleError);
   }
 
-  public deletePhone(imageId: String): Promise<Image>{
+  public deleteImage(imageId: String): Promise<Image>{
     return this.http
       .delete(this.imagesUrl + '/' + imageId)
       .toPromise()
