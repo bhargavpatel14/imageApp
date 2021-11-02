@@ -1,6 +1,41 @@
 <app-header></app-header>
 <div class="atf-wrap">
     <div class="grid">
-
+        <div class="detail-wrap">
+            <ul class="detail-inner-wrap">
+                <li>
+                    <div class="img-wrap">
+                        <img src="assets/images/{{newImage.url}}" alt="{{newImage.url}}">
+                    </div>
+                    <p class="img-ttl">{{newImage.img_name}}</p>
+                    <p class="prsn"><span>Photographer: </span>&nbsp;<span class="phgrph">{{newImage.photographer}}</span></p>
+                    <p class="tags"><span *ngFor="let tag of newImage.tags">{{tag}}</span></p>
+                    <p class="dtls">
+                        <span class="dtls-ttl">Aperture: </span>&nbsp;<span class="dtls-txt">{{newImage.aprture}}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="dtls-ttl">Shutter Speed: </span>&nbsp;<span class="dtls-txt">{{newImage.shut_speed}}</span>
+                    </p>
+                    <div class="rv-ttl" *ngIf="newImage.reviews.length > 0">Reviews</div>
+                    <div class="review-wrap">
+                        <div class="review" *ngFor="let review of newImage.reviews">
+                            <p class="r-ttl">{{review.reviewer}}</p>
+                            <p class="r-txt">{{review.review_txt}}</p>
+                            <p class="r-rtn">
+                                <i class="fa fa-star{{review.rating < 1 ? '-o' : ''}}"></i>
+                                <i class="fa fa-star{{review.rating < 2 ? '-o' : ''}}"></i>
+                                <i class="fa fa-star{{review.rating < 3 ? '-o' : ''}}"></i>
+                                <i class="fa fa-star{{review.rating < 4 ? '-o' : ''}}"></i>
+                                <i class="fa fa-star{{review.rating < 5 ? '-o' : ''}}"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="btn-wrap">
+                        <a class="dwn-btn">Download</a>
+                        <a (click)="deleteThisImage(newImage._id)">Delete</a>
+                        <a class="dwn-edt" routerLink="/edit/{{newImage._id}}">Edit</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

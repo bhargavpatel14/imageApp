@@ -15,24 +15,20 @@ export class DetailsPageComponent implements OnInit {
   constructor(private imageDataService : ImageDataService,
     private route : ActivatedRoute,private router: Router) { }
 
-  image:Image;
+  newImage = new Image('', '', '', [''], '', '', '', []);
 
   ngOnInit(): void {
     this.route.params.pipe(
       switchMap((params:Params) => {
         return this.imageDataService.getSingleImage(params['imageid'])
-      }))
-      .subscribe((newImage : Image) => {
-        this.image = newImage;
-      });
+      })
+    )
+    .subscribe((newImage : Image) => {
+      this.newImage = newImage;
+    });
   }
 
-  public deleteMobile(imageid: string):void{
+  public deleteThisImage(imageid: string):void{
     this.imageDataService.deleteImage(imageid);
   }
-
-  public editMobile(imageid: string):void{
-    this.router.navigate(['edit',imageid]);
-  }
-
 }

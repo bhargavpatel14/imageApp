@@ -53,7 +53,7 @@ export class ImageDataService {
       .delete(this.imagesUrl + '/' + imageId)
       .toPromise()
       .then(response => {
-        this.route.navigate(['/imagelist']);
+        this.route.navigate(['']);
       })
       .catch(this.handleError);
   }
