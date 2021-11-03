@@ -12,7 +12,7 @@
                     <p class="prsn"><span>Photographer: </span>&nbsp;<span class="phgrph">{{image.photographer}}</span></p>
                     <p class="tags"><span *ngFor="let tag of image.tags">{{tag}}</span></p>
                     <div class="btn-wrap">
-                        <a class="dwn-btn">Download</a>
+                        <a class="dwn-btn" [attr.img-name]="image.url">Download</a>
                         <a routerLink="/image-info/{{image._id}}">Details</a>
                     </div>
                 </li>

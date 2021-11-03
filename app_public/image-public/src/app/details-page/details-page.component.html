@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="btn-wrap">
-                        <a class="dwn-btn">Download</a>
+                        <a class="dwn-btn" [attr.img-name]="newImage.url">Download</a>
                         <a (click)="deleteThisImage(newImage._id)">Delete</a>
                         <a class="dwn-edt" routerLink="/edit/{{newImage._id}}">Edit</a>
                     </div>
