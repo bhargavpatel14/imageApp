@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbURI = 'mongodb+srv://admin:admin@inclass.vxbxj.mongodb.net/imageDB?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://ImageDB:ImageDB123@cluster0.3ev7d.mongodb.net/ImagesDB?retryWrites=true&w=majority';
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', () => {
